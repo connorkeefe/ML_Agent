@@ -1,0 +1,53 @@
+# MCP ML Processor Requirements
+
+# Core MCP dependencies
+mcp>=1.0.0
+pydantic>=2.0.0
+asyncio-mqtt>=0.16.0
+websockets>=12.0
+
+# Data processing and ML
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# File handling
+openpyxl>=3.1.0
+xlrd>=2.0.0
+pyarrow>=12.0.0
+
+# Model persistence
+joblib>=1.3.0
+pickle5>=0.0.11
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
+click>=8.1.0
+rich>=13.0.0
+tqdm>=4.65.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Logging
+structlog>=23.0.0
+colorlog>=6.7.0
+
+# Optional ML libraries
+xgboost>=1.7.0
+lightgbm>=4.0.0
+catboost>=1.2.0
+
+# Web serving (for HTTP MCP transport)
+fastapi>=0.103.0
+uvicorn>=0.23.0

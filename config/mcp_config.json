@@ -1,0 +1,127 @@
+{
+  "version": "1.0.0",
+  "description": "MCP ML Processor Configuration",
+  "servers": {
+    "ml-classifier-server": {
+      "module_path": "mcp_servers.classification_server.server",
+      "class_name": "ClassificationServer",
+      "host": "localhost",
+      "port": 8001,
+      "transport": "websocket",
+      "log_level": "INFO",
+      "resource_path": "mcp_servers/classification_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    },
+    "data-ingestion-server": {
+      "module_path": "mcp_servers.ingestion_server.server",
+      "class_name": "IngestionServer", 
+      "host": "localhost",
+      "port": 8002,
+      "transport": "websocket",
+      "log_level": "INFO",
+      "resource_path": "mcp_servers/ingestion_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    },
+    "eda-server": {
+      "module_path": "mcp_servers.eda_server.server",
+      "class_name": "EDAServer",
+      "host": "localhost", 
+      "port": 8003,
+      "transport": "websocket",
+      "log_level": "INFO",
+      "resource_path": "mcp_servers/eda_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    },
+    "ml-decision-server": {
+      "module_path": "mcp_servers.decision_server.server",
+      "class_name": "DecisionServer",
+      "host": "localhost",
+      "port": 8004,
+      "transport": "websocket", 
+      "log_level": "INFO",
+      "resource_path": "mcp_servers/decision_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    },
+    "preprocessing-server": {
+      "module_path": "mcp_servers.preprocessing_server.server",
+      "class_name": "PreprocessingServer",
+      "host": "localhost",
+      "port": 8005,
+      "transport": "websocket",
+      "log_level": "INFO", 
+      "resource_path": "mcp_servers/preprocessing_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    },
+    "training-server": {
+      "module_path": "mcp_servers.training_server.server", 
+      "class_name": "TrainingServer",
+      "host": "localhost",
+      "port": 8006,
+      "transport": "websocket",
+      "log_level": "INFO",
+      "resource_path": "mcp_servers/training_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    },
+    "export-server": {
+      "module_path": "mcp_servers.export_server.server",
+      "class_name": "ExportServer", 
+      "host": "localhost",
+      "port": 8007,
+      "transport": "websocket",
+      "log_level": "INFO",
+      "resource_path": "mcp_servers/export_server/resources",
+      "environment": {
+        "PYTHONPATH": "."
+      }
+    }
+  },
+  "orchestrator": {
+    "host": "localhost",
+    "port": 8000,
+    "log_level": "INFO",
+    "max_workflow_duration": 3600,
+    "max_concurrent_workflows": 5,
+    "data_storage_path": "data/workflows",
+    "model_storage_path": "data/models"
+  },
+  "client_config": {
+    "timeout": 30,
+    "retry_attempts": 3,
+    "retry_delay": 1
+  },
+  "data_limits": {
+    "max_file_size_mb": 1000,
+    "max_rows": 1000000,
+    "max_columns": 10000,
+    "max_memory_usage_gb": 8
+  },
+  "security": {
+    "allow_local_files_only": true,
+    "allowed_file_extensions": [".csv", ".xlsx", ".xls", ".json", ".parquet", ".feather"],
+    "max_upload_size_mb": 500
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/ml_processor.log",
+    "max_file_size_mb": 10,
+    "backup_count": 5
+  },
+  "development": {
+    "auto_reload": true,
+    "debug_mode": false,
+    "mock_long_operations": false
+  }
+}

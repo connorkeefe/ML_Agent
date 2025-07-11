@@ -1,0 +1,307 @@
+{
+  "description": "Comprehensive definitions of ML problem types supported by the system",
+  "version": "1.0.0",
+  "ml_problem_types": {
+    "supervised_classification": {
+      "definition": "Learning to predict discrete categories or classes from labeled examples",
+      "subcategories": [
+        "binary_classification",
+        "multi_class_classification",
+        "multi_label_classification"
+      ],
+      "examples": [
+        "Email spam detection",
+        "Image recognition",
+        "Sentiment analysis",
+        "Medical diagnosis",
+        "Customer churn prediction"
+      ],
+      "required_info": [
+        "target_variable",
+        "goal_of_ml"
+      ],
+      "data_requirements": {
+        "min_samples": 100,
+        "labeled_data": true,
+        "target_type": "categorical",
+        "class_balance": "should_check"
+      },
+      "typical_algorithms": [
+        "logistic_regression",
+        "random_forest",
+        "svm",
+        "neural_networks",
+        "gradient_boosting"
+      ]
+    },
+    "supervised_regression": {
+      "definition": "Learning to predict continuous numerical values from labeled examples",
+      "subcategories": [
+        "linear_regression",
+        "polynomial_regression",
+        "time_series_regression"
+      ],
+      "examples": [
+        "House price prediction",
+        "Sales forecasting",
+        "Stock price prediction",
+        "Temperature prediction",
+        "Revenue estimation"
+      ],
+      "required_info": [
+        "target_variable",
+        "goal_of_ml"
+      ],
+      "data_requirements": {
+        "min_samples": 100,
+        "labeled_data": true,
+        "target_type": "numerical",
+        "outliers": "should_handle"
+      },
+      "typical_algorithms": [
+        "linear_regression",
+        "random_forest",
+        "gradient_boosting",
+        "neural_networks",
+        "support_vector_regression"
+      ]
+    },
+    "semi_supervised_classification": {
+      "definition": "Learning to classify with a combination of labeled and unlabeled data",
+      "subcategories": [
+        "self_training",
+        "co_training",
+        "graph_based_methods"
+      ],
+      "examples": [
+        "Document classification with limited labels",
+        "Image classification with partial labeling",
+        "Text categorization"
+      ],
+      "required_info": [
+        "target_variable",
+        "labeled_ratio",
+        "goal_of_ml"
+      ],
+      "data_requirements": {
+        "min_samples": 500,
+        "labeled_data": true,
+        "unlabeled_data": true,
+        "labeled_ratio": "10-50%"
+      },
+      "typical_algorithms": [
+        "label_propagation",
+        "self_training",
+        "co_training"
+      ]
+    },
+    "unsupervised_clustering": {
+      "definition": "Discovering hidden patterns and groupings in data without labels",
+      "subcategories": [
+        "k_means_clustering",
+        "hierarchical_clustering",
+        "density_based_clustering",
+        "gaussian_mixture_models"
+      ],
+      "examples": [
+        "Customer segmentation",
+        "Market research",
+        "Gene sequence analysis",
+        "Social network analysis",
+        "Image segmentation"
+      ],
+      "required_info": [
+        "goal_of_ml",
+        "expected_clusters"
+      ],
+      "data_requirements": {
+        "min_samples": 200,
+        "labeled_data": false,
+        "feature_scaling": "recommended",
+        "dimensionality": "should_consider"
+      },
+      "typical_algorithms": [
+        "k_means",
+        "dbscan",
+        "hierarchical_clustering",
+        "gaussian_mixture"
+      ]
+    },
+    "unsupervised_dimensionality_reduction": {
+      "definition": "Reducing the number of features while preserving important information",
+      "subcategories": [
+        "linear_methods",
+        "nonlinear_methods",
+        "manifold_learning"
+      ],
+      "examples": [
+        "Data visualization",
+        "Feature extraction",
+        "Noise reduction",
+        "Compression",
+        "Preprocessing for other algorithms"
+      ],
+      "required_info": [
+        "goal_of_ml",
+        "target_dimensions"
+      ],
+      "data_requirements": {
+        "min_samples": 100,
+        "high_dimensionality": "beneficial",
+        "correlated_features": "beneficial"
+      },
+      "typical_algorithms": [
+        "pca",
+        "t_sne",
+        "umap",
+        "ica",
+        "factor_analysis"
+      ]
+    },
+    "unsupervised_anomaly_detection": {
+      "definition": "Identifying unusual patterns or outliers in data",
+      "subcategories": [
+        "statistical_methods",
+        "isolation_methods",
+        "clustering_based",
+        "neural_network_based"
+      ],
+      "examples": [
+        "Fraud detection",
+        "Network intrusion detection",
+        "Quality control",
+        "System monitoring",
+        "Medical anomaly detection"
+      ],
+      "required_info": [
+        "goal_of_ml",
+        "anomaly_type"
+      ],
+      "data_requirements": {
+        "min_samples": 1000,
+        "normal_data_abundance": true,
+        "anomaly_ratio": "typically_low"
+      },
+      "typical_algorithms": [
+        "isolation_forest",
+        "one_class_svm",
+        "local_outlier_factor",
+        "autoencoder"
+      ]
+    },
+    "time_series_forecasting": {
+      "definition": "Predicting future values based on historical time-ordered data",
+      "subcategories": [
+        "univariate_forecasting",
+        "multivariate_forecasting",
+        "seasonal_forecasting"
+      ],
+      "examples": [
+        "Stock price prediction",
+        "Weather forecasting",
+        "Demand forecasting",
+        "Energy consumption prediction",
+        "Traffic flow prediction"
+      ],
+      "required_info": [
+        "target_variable",
+        "forecast_horizon",
+        "seasonality",
+        "goal_of_ml"
+      ],
+      "data_requirements": {
+        "min_samples": 50,
+        "temporal_order": true,
+        "regular_intervals": "preferred",
+        "missing_values": "should_handle"
+      },
+      "typical_algorithms": [
+        "arima",
+        "sarima",
+        "exponential_smoothing",
+        "lstm",
+        "prophet"
+      ]
+    },
+    "time_series_classification": {
+      "definition": "Classifying time series data into predefined categories",
+      "subcategories": [
+        "shapelet_based",
+        "feature_based",
+        "distance_based"
+      ],
+      "examples": [
+        "Activity recognition",
+        "ECG classification",
+        "Audio classification",
+        "Gesture recognition",
+        "Financial pattern classification"
+      ],
+      "required_info": [
+        "target_variable",
+        "time_series_length",
+        "goal_of_ml"
+      ],
+      "data_requirements": {
+        "min_samples": 100,
+        "labeled_time_series": true,
+        "consistent_length": "preferred"
+      },
+      "typical_algorithms": [
+        "dtw_knn",
+        "random_forest_features",
+        "lstm_classifier",
+        "shapelet_transform"
+      ]
+    }
+  },
+  "problem_indicators": {
+    "has_target_variable": [
+      "supervised_classification",
+      "supervised_regression",
+      "semi_supervised_classification",
+      "time_series_forecasting",
+      "time_series_classification"
+    ],
+    "no_target_variable": [
+      "unsupervised_clustering",
+      "unsupervised_dimensionality_reduction",
+      "unsupervised_anomaly_detection"
+    ],
+    "temporal_component": [
+      "time_series_forecasting",
+      "time_series_classification"
+    ],
+    "categorical_target": [
+      "supervised_classification",
+      "semi_supervised_classification",
+      "time_series_classification"
+    ],
+    "numerical_target": [
+      "supervised_regression",
+      "time_series_forecasting"
+    ]
+  },
+  "clarification_templates": {
+    "target_variable": [
+      "What specific outcome or variable are you trying to predict?",
+      "Do you have a target column in your dataset?",
+      "What would success look like for this analysis?"
+    ],
+    "goal_of_ml": [
+      "What business problem are you trying to solve?",
+      "How will you use the results of this analysis?",
+      "What decisions will be made based on these predictions?"
+    ],
+    "data_characteristics": [
+      "Can you describe the structure of your data?",
+      "What type of information does each column contain?",
+      "Do you have labeled examples or is this exploratory?"
+    ],
+    "time_component": [
+      "Does your data have a time or sequence component?",
+      "Are you looking to predict future values?",
+      "Is the order of data points important?"
+    ]
+  }
+}

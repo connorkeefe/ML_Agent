@@ -1,0 +1,316 @@
+{
+  "description": "System capabilities and limitations for different ML problem types",
+  "version": "1.0.0",
+  "supported_problems": [
+    "supervised_classification",
+    "supervised_regression",
+    "unsupervised_clustering",
+    "unsupervised_dimensionality_reduction",
+    "unsupervised_anomaly_detection",
+    "time_series_forecasting"
+  ],
+  "partially_supported": [
+    "semi_supervised_classification",
+    "time_series_classification"
+  ],
+  "not_supported": [
+    "reinforcement_learning",
+    "deep_learning_advanced",
+    "nlp_advanced",
+    "computer_vision_advanced"
+  ],
+  "limitations": {
+    "supervised_classification": [
+      "Maximum 1M rows recommended",
+      "Limited to structured data",
+      "No real-time learning",
+      "Limited text processing capabilities"
+    ],
+    "supervised_regression": [
+      "Maximum 1M rows recommended", 
+      "Limited to structured data",
+      "No real-time learning",
+      "Limited feature engineering automation"
+    ],
+    "unsupervised_clustering": [
+      "Maximum 500K rows recommended",
+      "Limited cluster validation metrics",
+      "No automatic optimal cluster detection",
+      "Limited handling of mixed data types"
+    ],
+    "unsupervised_dimensionality_reduction": [
+      "Maximum 100K rows for non-linear methods",
+      "Limited to numerical features",
+      "No automatic dimension selection",
+      "Limited interpretability of components"
+    ],
+    "unsupervised_anomaly_detection": [
+      "Maximum 1M rows recommended",
+      "Limited real-time detection",
+      "No concept drift handling",
+      "Limited explanation of anomalies"
+    ],
+    "time_series_forecasting": [
+      "Maximum 10K time points recommended",
+      "Limited to univariate and simple multivariate",
+      "No automatic seasonality detection",
+      "Limited handling of missing values"
+    ]
+  },
+  "requirements": {
+    "supervised_classification": [
+      "Labeled target variable",
+      "Minimum 100 samples",
+      "Target should have at least 2 classes",
+      "Features should be mostly complete"
+    ],
+    "supervised_regression": [
+      "Numerical target variable",
+      "Minimum 100 samples",
+      "Target should be continuous",
+      "Limited outliers in target"
+    ],
+    "unsupervised_clustering": [
+      "Minimum 200 samples",
+      "Mostly numerical features",
+      "Feature scaling recommended",
+      "Some domain knowledge helpful"
+    ],
+    "unsupervised_dimensionality_reduction": [
+      "Minimum 100 samples",
+      "Numerical features required",
+      "High-dimensional data beneficial",
+      "Correlated features beneficial"
+    ],
+    "unsupervised_anomaly_detection": [
+      "Minimum 1000 samples",
+      "Mostly normal data",
+      "Anomalies should be rare (<10%)",
+      "Features should be relevant to anomalies"
+    ],
+    "time_series_forecasting": [
+      "Temporal ordering required",
+      "Minimum 50 time points",
+      "Regular intervals preferred",
+      "Some historical patterns expected"
+    ]
+  },
+  "data_format_support": {
+    "csv": {
+      "supported": true,
+      "max_size": "1GB",
+      "encoding": ["utf-8", "latin-1"],
+      "separators": [",", ";", "\t"]
+    },
+    "excel": {
+      "supported": true,
+      "max_size": "500MB",
+      "formats": [".xlsx", ".xls"],
+      "multiple_sheets": false
+    },
+    "json": {
+      "supported": true,
+      "max_size": "500MB",
+      "nested_data": "limited"
+    },
+    "parquet": {
+      "supported": true,
+      "max_size": "2GB",
+      "compression": true
+    },
+    "database": {
+      "supported": false,
+      "planned": true
+    },
+    "streaming": {
+      "supported": false,
+      "planned": true
+    }
+  },
+  "feature_support": {
+    "numerical_features": {
+      "supported": true,
+      "preprocessing": ["scaling", "normalization", "transformation"]
+    },
+    "categorical_features": {
+      "supported": true,
+      "preprocessing": ["encoding", "binning", "grouping"]
+    },
+    "datetime_features": {
+      "supported": true,
+      "preprocessing": ["extraction", "formatting", "time_zones"]
+    },
+    "text_features": {
+      "supported": "basic",
+      "preprocessing": ["tokenization", "vectorization"],
+      "limitations": ["no_advanced_nlp", "no_embeddings"]
+    },
+    "missing_values": {
+      "supported": true,
+      "methods": ["imputation", "deletion", "indicator_variables"]
+    },
+    "outliers": {
+      "supported": true,
+      "methods": ["detection", "treatment", "robust_methods"]
+    }
+  },
+  "model_support": {
+    "traditional_ml": {
+      "supported": true,
+      "algorithms": [
+        "linear_regression",
+        "logistic_regression", 
+        "random_forest",
+        "gradient_boosting",
+        "svm",
+        "k_means",
+        "dbscan",
+        "pca",
+        "isolation_forest"
+      ]
+    },
+    "ensemble_methods": {
+      "supported": true,
+      "algorithms": [
+        "random_forest",
+        "gradient_boosting",
+        "voting_classifier",
+        "bagging"
+      ]
+    },
+    "deep_learning": {
+      "supported": "basic",
+      "algorithms": ["mlp", "simple_lstm"],
+      "limitations": ["no_gpu_optimization", "limited_architectures"]
+    },
+    "time_series_specific": {
+      "supported": true,
+      "algorithms": [
+        "arima",
+        "exponential_smoothing",
+        "seasonal_decomposition"
+      ]
+    }
+  },
+  "evaluation_support": {
+    "classification_metrics": [
+      "accuracy",
+      "precision",
+      "recall",
+      "f1_score",
+      "roc_auc",
+      "confusion_matrix",
+      "classification_report"
+    ],
+    "regression_metrics": [
+      "mse",
+      "rmse",
+      "mae",
+      "r2_score",
+      "mean_absolute_percentage_error"
+    ],
+    "clustering_metrics": [
+      "silhouette_score",
+      "calinski_harabasz_score",
+      "davies_bouldin_score",
+      "inertia"
+    ],
+    "cross_validation": [
+      "k_fold",
+      "stratified_k_fold",
+      "time_series_split"
+    ]
+  },
+  "visualization_support": {
+    "data_exploration": [
+      "histograms",
+      "scatter_plots",
+      "correlation_matrix",
+      "box_plots",
+      "distribution_plots"
+    ],
+    "model_evaluation": [
+      "confusion_matrix",
+      "roc_curve",
+      "feature_importance",
+      "residual_plots",
+      "learning_curves"
+    ],
+    "clustering_visualization": [
+      "cluster_scatter",
+      "dendrogram",
+      "silhouette_analysis"
+    ]
+  },
+  "export_formats": {
+    "model_formats": [
+      "joblib",
+      "pickle",
+      "onnx"
+    ],
+    "code_formats": [
+      "python_script",
+      "jupyter_notebook",
+      "pipeline_yaml"
+    ],
+    "documentation_formats": [
+      "markdown",
+      "html_report",
+      "pdf_report"
+    ]
+  },
+  "performance_characteristics": {
+    "training_time": {
+      "small_dataset": "< 1000 rows: seconds",
+      "medium_dataset": "1K-100K rows: minutes", 
+      "large_dataset": "100K-1M rows: hours"
+    },
+    "memory_usage": {
+      "small_dataset": "< 100MB RAM",
+      "medium_dataset": "100MB-2GB RAM",
+      "large_dataset": "2GB-8GB RAM"
+    },
+    "inference_time": {
+      "single_prediction": "< 1ms",
+      "batch_prediction": "< 1s per 1000 samples"
+    }
+  },
+  "system_requirements": {
+    "minimum": {
+      "python_version": "3.9+",
+      "ram": "4GB",
+      "storage": "1GB",
+      "cpu": "2 cores"
+    },
+    "recommended": {
+      "python_version": "3.11+",
+      "ram": "16GB",
+      "storage": "10GB",
+      "cpu": "8 cores"
+    },
+    "dependencies": [
+      "pandas>=2.0.0",
+      "scikit-learn>=1.3.0",
+      "numpy>=1.24.0",
+      "matplotlib>=3.7.0",
+      "seaborn>=0.12.0"
+    ]
+  },
+  "update_info": {
+    "last_updated": "2025-01-15",
+    "version_history": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-15",
+        "changes": ["Initial capability matrix"]
+      }
+    ],
+    "planned_features": [
+      "Deep learning support expansion",
+      "Real-time learning capabilities",
+      "Advanced NLP features",
+      "Database connectivity",
+      "Distributed computing support"
+    ]
+  }
+}
